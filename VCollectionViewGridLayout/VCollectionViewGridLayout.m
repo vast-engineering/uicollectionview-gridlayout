@@ -102,7 +102,7 @@ typedef enum {
                 sectionHeight += contentInset.top;
             }
             UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-            headerPose.frame = CGRectMake(inset.left + contentInset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - contentInset.left - inset.right - contentInset.right, headerHeight);
+            headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
             headerPose.zIndex = 1;
             [headerPoses addObject:headerPose];
             rectangularHull = CGRectUnion(rectangularHull, headerPose.frame);
