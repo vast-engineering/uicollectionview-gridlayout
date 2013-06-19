@@ -37,7 +37,7 @@ extern NSString *const CSGridLayoutElementKindSectionHeader;
  if the collection view is backed by a `TLIndexPathTools` data model, simply
  return the value of `[TLIndexPathDataModel identifierAtIndexPath:]`.
  */
-- (id)identifierForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (id)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout identifierForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  The layout requires a unique name for each section in order to track the
@@ -45,9 +45,15 @@ extern NSString *const CSGridLayoutElementKindSectionHeader;
  if the collection view is backed by a `TLIndexPathTools` data model, simply
  return the value of `[TLIndexPathDataModel sectionNameForSection:]`.
  */
-- (NSString *)sectionNameForSection:(NSInteger)section;
+- (NSString *)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout sectionNameForSection:(NSInteger)section;
 
 @optional
+
+/**
+ Returns the size of the specified item. Implement this method if the layout will
+ have items of varying sizes. Otherwise, use the `itemSize` property.
+ */
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  Returns the reference size for the specified section. Implement this method if
@@ -75,7 +81,8 @@ extern NSString *const CSGridLayoutElementKindSectionHeader;
 @property (nonatomic) UIEdgeInsets sectionInset;
 
 /**
- Specifies the size of the cell (note that variable size cells are not supported).
+ Specifies the size of the cell. For varying size cells, use the
+ `collectionView:layout:sizeForItemAtIndexPath:` delegate method instead.
  */
 @property (nonatomic) CGSize itemSize;
 

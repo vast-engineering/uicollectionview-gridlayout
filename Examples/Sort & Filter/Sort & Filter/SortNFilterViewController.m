@@ -8,8 +8,8 @@
 
 #import "SortNFilterViewController.h"
 #import "TLCollectionViewController.h"
-#import "UIColor+Hex.h"
 #import "VCollectionViewGridLayout.h"
+#import "UIColor+Hex.h"
 
 @interface SortNFilterViewController ()
 @property (strong, nonatomic) TLCollectionViewController *collectionViewController;

@@ -14,4 +14,7 @@
    <FileRef
       location = "group:Examples/Sort &amp; Filter/Sort &amp; Filter.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Examples/Expand/Expand.xcodeproj">
+   </FileRef>
 </Workspace>

@@ -1,6 +1,6 @@
 //
-//  AnimationCollectionViewController.m
-//  Animation
+//  ExpandCollectionViewController.m
+//  Expand
 //
 //  Created by Tim Moose on 6/18/13.
 //  Copyright (c) 2013 Vast.com. All rights reserved.
@@ -8,12 +8,22 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "SortNFilterCollectionViewController.h"
+#import "ExpandCollectionViewController.h"
 
 #define IDX_TEXT 0
 #define IDX_COLOR 1
 
-@implementation SortNFilterCollectionViewController
+@interface ExpandCollectionViewController ()
+@property (strong, nonatomic) NSMutableSet *selected;
+@end
+
+@implementation ExpandCollectionViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.selected = [NSMutableSet set];
+}
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -26,6 +36,19 @@
     cell.layer.cornerRadius = 6;
 }
 
+#pragma mark - UICollectionViewDelegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    id identifer = [self.indexPathController.dataModel identifierAtIndexPath:indexPath];
+    if ([self.selected containsObject:identifer]) {
+        [self.selected removeObject:identifer];
+    } else {
+        [self.selected addObject:identifer];
+    }
+    [self.collectionView performBatchUpdates:nil completion:nil];
+}
+
 #pragma mark - VCollectionViewGridLayout
 
 - (id)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout identifierForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -36,6 +59,12 @@
 - (NSString *)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout sectionNameForSection:(NSInteger)section
 {
     return [self.indexPathController.dataModel sectionNameForSection:section];
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout *)layout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    id identifer = [self.indexPathController.dataModel identifierAtIndexPath:indexPath];
+    return [self.selected containsObject:identifer] ? CGSizeMake(300, 300) : CGSizeMake(300, 92);
 }
 
 @end

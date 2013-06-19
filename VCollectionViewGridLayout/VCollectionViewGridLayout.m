@@ -82,32 +82,43 @@ typedef enum {
         NSInteger sectionCount = [self.collectionView numberOfSections];
         CGRect rectangularHull = CGRectMake(0, 0, 0, 0);
         CGFloat width = self.collectionView.bounds.size.width;
+        //TODO eliminate dependency on itemSize property by supporting multiple cell widths
         CGFloat firstXCenter = inset.left + self.itemSize.width / 2.0;
         CGFloat lastXCenter = width - inset.right - self.itemSize.width / 2.0;
         CGFloat centerXSpacing = self.numberOfColumns > 1 ? (lastXCenter - firstXCenter) / (self.numberOfColumns - 1) : 0;
-        CGFloat sectionYOrigin = 0;
+        CGFloat sectionYOrigin = inset.top;
         for (NSInteger section = 0; section < sectionCount; section++) {
-            CGFloat headerHeight = self.headerSize.height;
-            if (headerHeight == 0 && [self.delegate respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
+            CGFloat sectionHeight = 0;
+            CGFloat headerHeight;
+            if ([self.delegate respondsToSelector:@selector(collectionView:layout:referenceSizeForHeaderInSection:)]) {
                 CGSize referenceSize = [self.delegate collectionView:self.collectionView layout:self referenceSizeForHeaderInSection:section];
                 headerHeight = referenceSize.height;
+            } else {
+                headerHeight = self.headerSize.height;
             }
-//            if (headerHeight) {
+            sectionHeight += headerHeight;
             UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
             headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
             headerPose.zIndex = 1;
             [headerPoses addObject:headerPose];
-//            }
-            NSString *sectionName = [self.delegate sectionNameForSection:section];
+            NSString *sectionName = [self.delegate collectionView:self.collectionView layout:self sectionNameForSection:section];
             NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+            CGFloat rowHeight = 0;
+            NSInteger column = 0;
             for (NSInteger item = 0; item < itemCount; item++) {
-                NSInteger row = item / self.numberOfColumns;
-                NSInteger column = item % self.numberOfColumns;
+                column = item % self.numberOfColumns;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
-                NSString *itemIdentifier = [self.delegate identifierForItemAtIndexPath:indexPath];
+                NSString *itemIdentifier = [self.delegate collectionView:self.collectionView layout:self identifierForItemAtIndexPath:indexPath];
                 UICollectionViewLayoutAttributes *pose = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
-                CGFloat frameYOrigin = headerHeight + sectionYOrigin + inset.top + (self.itemSize.height + self.rowSpacing) * row;
-                pose.frame = CGRectMake(0, frameYOrigin, self.itemSize.width, self.itemSize.height);
+                CGSize itemSize;
+                if ([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
+                    itemSize = [self.delegate collectionView:self.collectionView layout:self sizeForItemAtIndexPath:indexPath];
+                } else {
+                    itemSize = self.itemSize;
+                }
+                rowHeight = MAX(rowHeight, itemSize.height);
+                CGFloat frameYOrigin = sectionYOrigin + sectionHeight;
+                pose.frame = CGRectMake(0, frameYOrigin, itemSize.width, itemSize.height);
                 CGPoint center = pose.center;
                 center.x = firstXCenter + (column * centerXSpacing);
                 pose.center = center;
@@ -115,17 +126,18 @@ typedef enum {
                 TLIndexPathItem *indexPathData = [[TLIndexPathItem alloc] initWithIdentifier:itemIdentifier sectionName:sectionName cellIdentifier:nil data:pose];
                 [items addObject:indexPathData];
                 rectangularHull = CGRectUnion(rectangularHull, pose.frame);
+                if (column == self.numberOfColumns - 1) {
+                    sectionHeight += rowHeight + self.rowSpacing;
+                    rowHeight = 0;
+                }
             }
-            NSInteger rowCount = ceilf((float) itemCount / self.numberOfColumns);
-            sectionYOrigin += inset.top + inset.bottom + headerHeight + rowCount * self.itemSize.height + MAX(rowCount - 1, 0) * self.rowSpacing;
+            sectionYOrigin += inset.bottom + sectionHeight + inset.top;
         }
         _dataModel = [[CSGridLayoutDataModel alloc] initWithIndexPathItems:items];
         _dataModel.contentSize = rectangularHull.size;
         _dataModel.headerPoses = headerPoses;
         CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;// TODO This should take into account content offset
         _dataModel.bounds = predictedBounds;
-//        DLog(@"dataModel predictedBounds=%f", predictedBounds.origin.y);
-//        DLog(@"dataModel sections=%d, items=%d", _dataModel.sections.count, _dataModel.items.count);
         [self updateDataModelForStickyHeader];
     }
     return _dataModel;
@@ -154,11 +166,10 @@ typedef enum {
         UICollectionViewLayoutAttributes *pose = indexPathData.data;
         if (CGRectIntersectsRect(rect, pose.frame)) {
             [posesInRect addObject:pose];
-//            DLog(@"%@", pose);// TODO
         }
     }
     for (UICollectionViewLayoutAttributes *pose in self.dataModel.headerPoses) {
-        if (CGRectIntersectsRect(rect, pose.frame)) {
+        if (CGRectIntersectsRect(rect, pose.frame) && pose.frame.size.height > 0) {
             [posesInRect addObject:pose];
         }
     }
@@ -183,12 +194,6 @@ typedef enum {
 
 #pragma mark - Responding to Collection View Updates
 
-//- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
-//{
-//    [super prepareForCollectionViewUpdates:updateItems];
-//    DLog(@"prepareForCollectionViewUpdates");
-//}
-
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
     TLIndexPathItem *newItem = [self.dataModel itemAtIndexPath:itemIndexPath];
@@ -196,7 +201,6 @@ typedef enum {
     UICollectionViewLayoutAttributes *oldPose = [oldItem.data copy];
     UICollectionViewLayoutAttributes *newPose = [newItem.data copy];
     UICollectionViewLayoutAttributes *pose = [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
-//    DLog(@"initialLayoutAttributesForAppearingItemAtIndexPath: indexPath=%@, pose=%@", itemIndexPath, pose);
     return pose;
 }
 
@@ -235,7 +239,6 @@ typedef enum {
     UICollectionViewLayoutAttributes *oldPose = [oldItem.data copy];
     UICollectionViewLayoutAttributes *newPose = [newItem.data copy];
     UICollectionViewLayoutAttributes *pose = [self finalLayoutAttributesForOldPose:oldPose andNewPose:newPose];
-//    DLog(@"finalLayoutAttributesForDisappearingItemAtIndexPath: indexPath=%@, pose=%@", itemIndexPath, pose);
     return pose;
 }
 
@@ -341,12 +344,6 @@ typedef enum {
     return CSGridLayoutChangeTypeNone;
 }
 
-//- (void)prepareForAnimatedBoundsChange:(CGRect)oldBounds
-//{
-//    [super prepareForAnimatedBoundsChange:oldBounds];
-//    DLog(@"prepareForAnimatedBoundsChange");
-//}
-
 #pragma mark - Invalidating the Layout
 
 - (void)invalidateLayout
@@ -362,7 +359,6 @@ typedef enum {
             self.dataModelUpdates = nil;
         }
     }
-//    DLog(@"invalidateLayout");
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
@@ -372,9 +368,7 @@ typedef enum {
         return NO;
     }
     
-//    DLog(@"invalidated");
     self.dataModel.bounds = newBounds;
-//    DLog(@"shouldInvalidateLayoutForBoundsChange update bounds to %f", newBounds.origin.y);
     [self updateDataModelForStickyHeader];
     self.invalidatedForStickyHeader = YES;
     return YES;
@@ -438,7 +432,6 @@ typedef enum {
         if (pos < 0) {
             CGRect frame = topMostHeaderPose.frame;
             frame.origin.y = dataModel.bounds.origin.y;
-//            DLog(@"Stuck %@ to %f with bound %f", [dataModel sectionNameForSection:topMostHeaderPose.indexPath.section], frame.origin.y, dataModel.bounds.origin.y);
             if (nextSectionPose) {
                 CGFloat delta = nextSectionPose.frame.origin.y - (frame.origin.y + frame.size.height);
                 if (delta < 0) frame.origin.y += delta;
