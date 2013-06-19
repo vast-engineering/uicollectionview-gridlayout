@@ -25,7 +25,7 @@
 #import <UIKit/UIKit.h>
 #import "TLIndexPathDataModel.h"
 
-extern NSString *const CSGridLayoutElementKindSectionHeader;
+extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 
 @class VCollectionViewGridLayout;
 

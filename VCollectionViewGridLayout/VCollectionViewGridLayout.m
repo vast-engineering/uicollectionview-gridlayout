@@ -22,9 +22,9 @@
 #import "TLIndexPathUpdates.h"
 #import <CoreData/CoreData.h>
 
-NSString *const CSGridLayoutElementKindSectionHeader = @"CSGridLayoutElementKindSectionHeader";
+NSString *const VCollectionViewElementKindSectionHeader = @"VCollectionViewElementKindSectionHeader";
 
-@interface CSGridLayoutDataModel : TLIndexPathDataModel
+@interface VCollectionViewDataModel : TLIndexPathDataModel
 @property (nonatomic) CGSize contentSize;
 @property (nonatomic) CGRect bounds;
 @property (nonatomic) CGRect bufferRect;
@@ -32,18 +32,18 @@ NSString *const CSGridLayoutElementKindSectionHeader = @"CSGridLayoutElementKind
 @end
 
 typedef enum {
-    CSGridLayoutChangeTypeNone,
-    CSGridLayoutChangeTypeInsert,
-    CSGridLayoutChangeTypeDelete,
-    CSGridLayoutChangeTypeMoveWithinBuffer,
-    CSGridLayoutChangeTypeMoveIntoBuffer,
-    CSGridLayoutChangeTypeMoveOutOfBuffer,
-} CSGridLayoutChangeType;
+    VCollectionViewChangeTypeNone,
+    VCollectionViewChangeTypeInsert,
+    VCollectionViewChangeTypeDelete,
+    VCollectionViewChangeTypeMoveWithinBuffer,
+    VCollectionViewChangeTypeMoveIntoBuffer,
+    VCollectionViewChangeTypeMoveOutOfBuffer,
+} VCollectionViewChangeType;
 
 @interface VCollectionViewGridLayout ()
 @property (weak, nonatomic, readonly) id<VCollectionViewGridLayoutDelegate>delegate;
-@property (strong, nonatomic) CSGridLayoutDataModel *dataModel;
-@property (strong, nonatomic) CSGridLayoutDataModel *oldDataModel;
+@property (strong, nonatomic) VCollectionViewDataModel *dataModel;
+@property (strong, nonatomic) VCollectionViewDataModel *oldDataModel;
 @property (strong, nonatomic) TLIndexPathUpdates *dataModelUpdates;
 @property (nonatomic) BOOL invalidatedForStickyHeader;
 @end
@@ -73,7 +73,7 @@ typedef enum {
 
 #pragma mark - Data model
 
-- (CSGridLayoutDataModel *)dataModel
+- (VCollectionViewDataModel *)dataModel
 {
     if (!_dataModel) {
         NSMutableArray *items = [[NSMutableArray alloc] init];
@@ -97,7 +97,7 @@ typedef enum {
                 headerHeight = self.headerSize.height;
             }
             sectionHeight += headerHeight;
-            UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:CSGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+            UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
             headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
             headerPose.zIndex = 1;
             [headerPoses addObject:headerPose];
@@ -133,7 +133,7 @@ typedef enum {
             }
             sectionYOrigin += inset.bottom + sectionHeight + inset.top;
         }
-        _dataModel = [[CSGridLayoutDataModel alloc] initWithIndexPathItems:items];
+        _dataModel = [[VCollectionViewDataModel alloc] initWithIndexPathItems:items];
         _dataModel.contentSize = rectangularHull.size;
         _dataModel.headerPoses = headerPoses;
         CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;// TODO This should take into account content offset
@@ -216,16 +216,16 @@ typedef enum {
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForOldPose:(UICollectionViewLayoutAttributes *)oldPose andNewPose:(UICollectionViewLayoutAttributes *)newPose
 {
     UICollectionViewLayoutAttributes *mappedOldPose = [self mapOldPoseToNewBounds:oldPose];
-    CSGridLayoutChangeType changeType = [self changeTypeForOldPose:oldPose andNewPose:newPose andMappedOldPose:mappedOldPose];
+    VCollectionViewChangeType changeType = [self changeTypeForOldPose:oldPose andNewPose:newPose andMappedOldPose:mappedOldPose];
     switch (changeType) {
-        case CSGridLayoutChangeTypeMoveIntoBuffer:
+        case VCollectionViewChangeTypeMoveIntoBuffer:
         {
         UICollectionViewLayoutAttributes *adjustedPose = [self adjustPoseForBufferCrossingMove:oldPose withOtherPose:newPose];
         return adjustedPose;
         }
-        case CSGridLayoutChangeTypeMoveOutOfBuffer:
+        case VCollectionViewChangeTypeMoveOutOfBuffer:
             return [self isBoundsChange] ? mappedOldPose : nil;
-        case CSGridLayoutChangeTypeMoveWithinBuffer:
+        case VCollectionViewChangeTypeMoveWithinBuffer:
             return oldPose;
         default:
             return oldPose;
@@ -254,16 +254,16 @@ typedef enum {
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForOldPose:(UICollectionViewLayoutAttributes *)oldPose andNewPose:(UICollectionViewLayoutAttributes *)newPose
 {
     UICollectionViewLayoutAttributes *mappedOldPose = [self mapOldPoseToNewBounds:oldPose];
-    CSGridLayoutChangeType changeType = [self changeTypeForOldPose:oldPose andNewPose:newPose andMappedOldPose:mappedOldPose];
+    VCollectionViewChangeType changeType = [self changeTypeForOldPose:oldPose andNewPose:newPose andMappedOldPose:mappedOldPose];
     switch (changeType) {
-        case CSGridLayoutChangeTypeMoveOutOfBuffer:
+        case VCollectionViewChangeTypeMoveOutOfBuffer:
         {
         UICollectionViewLayoutAttributes *adjustedPose = [self adjustPoseForBufferCrossingMove:newPose withOtherPose:oldPose];
         return adjustedPose;
         }
-        case CSGridLayoutChangeTypeMoveIntoBuffer:
+        case VCollectionViewChangeTypeMoveIntoBuffer:
             return [self isBoundsChange] ? newPose : nil;
-        case CSGridLayoutChangeTypeMoveWithinBuffer:
+        case VCollectionViewChangeTypeMoveWithinBuffer:
             return newPose;
         default:
             return nil;
@@ -305,22 +305,22 @@ typedef enum {
     return !CGRectEqualToRect(self.dataModel.bounds, self.oldDataModel.bounds);
 }
 
-- (CSGridLayoutChangeType)changeTypeForOldPose:(UICollectionViewLayoutAttributes *)oldPose
+- (VCollectionViewChangeType)changeTypeForOldPose:(UICollectionViewLayoutAttributes *)oldPose
                                     andNewPose:(UICollectionViewLayoutAttributes *)newPose
                               andMappedOldPose:(UICollectionViewLayoutAttributes *)mappedOldPose
 {
     BOOL isBoundsChange = [self isBoundsChange];
 
     if (!oldPose && !newPose) {
-        return CSGridLayoutChangeTypeNone;
+        return VCollectionViewChangeTypeNone;
     }
     
     if (!oldPose) {
-        return CSGridLayoutChangeTypeInsert;
+        return VCollectionViewChangeTypeInsert;
     }
     
     if (!newPose) {
-        return CSGridLayoutChangeTypeDelete;
+        return VCollectionViewChangeTypeDelete;
     }
     
     BOOL oldPoseWithinRectForLayout = CGRectIntersectsRect(oldPose.frame, self.oldDataModel.bufferRect);
@@ -330,18 +330,18 @@ typedef enum {
     }
     
     if (oldPoseWithinRectForLayout && newPoseWithinRectForLayout) {
-        return CSGridLayoutChangeTypeMoveWithinBuffer;
+        return VCollectionViewChangeTypeMoveWithinBuffer;
     }
     
     if (oldPoseWithinRectForLayout) {
-        return CSGridLayoutChangeTypeMoveOutOfBuffer;
+        return VCollectionViewChangeTypeMoveOutOfBuffer;
     }
     
     if (newPoseWithinRectForLayout) {
-        return CSGridLayoutChangeTypeMoveIntoBuffer;
+        return VCollectionViewChangeTypeMoveIntoBuffer;
     }
     
-    return CSGridLayoutChangeTypeNone;
+    return VCollectionViewChangeTypeNone;
 }
 
 #pragma mark - Invalidating the Layout
@@ -380,7 +380,7 @@ typedef enum {
         return;
     }
     
-    CSGridLayoutDataModel *dataModel = self.dataModel;
+    VCollectionViewDataModel *dataModel = self.dataModel;
 
     if (dataModel.headerPoses.count == 0) {
         return;
@@ -472,7 +472,7 @@ typedef enum {
 
 @end
 
-#pragma mark - CSGridLayoutDataModel
+#pragma mark - VCollectionViewDataModel
 
-@implementation CSGridLayoutDataModel
+@implementation VCollectionViewDataModel
 @end
