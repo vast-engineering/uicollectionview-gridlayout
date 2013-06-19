@@ -79,14 +79,15 @@ typedef enum {
         NSMutableArray *items = [[NSMutableArray alloc] init];
         NSMutableArray *headerPoses = [[NSMutableArray alloc] init];
         UIEdgeInsets inset = self.sectionInset;
+        UIEdgeInsets contentInset = self.sectionContentInset;
         NSInteger sectionCount = [self.collectionView numberOfSections];
         CGRect rectangularHull = CGRectMake(0, 0, 0, 0);
         CGFloat width = self.collectionView.bounds.size.width;
         //TODO eliminate dependency on itemSize property by supporting multiple cell widths
-        CGFloat firstXCenter = inset.left + self.itemSize.width / 2.0;
-        CGFloat lastXCenter = width - inset.right - self.itemSize.width / 2.0;
+        CGFloat firstXCenter = inset.left + contentInset.left + self.itemSize.width / 2.0;
+        CGFloat lastXCenter = width - inset.right - contentInset.right - self.itemSize.width / 2.0;
         CGFloat centerXSpacing = self.numberOfColumns > 1 ? (lastXCenter - firstXCenter) / (self.numberOfColumns - 1) : 0;
-        CGFloat sectionYOrigin = inset.top;
+        CGFloat sectionYOrigin = 0;
         for (NSInteger section = 0; section < sectionCount; section++) {
             CGFloat sectionHeight = 0;
             CGFloat headerHeight;
@@ -97,10 +98,14 @@ typedef enum {
                 headerHeight = self.headerSize.height;
             }
             sectionHeight += headerHeight;
+            if (headerHeight) {
+                sectionHeight += contentInset.top;
+            }
             UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-            headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
+            headerPose.frame = CGRectMake(inset.left + contentInset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - contentInset.left - inset.right - contentInset.right, headerHeight);
             headerPose.zIndex = 1;
             [headerPoses addObject:headerPose];
+            rectangularHull = CGRectUnion(rectangularHull, headerPose.frame);
             NSString *sectionName = [self.delegate collectionView:self.collectionView layout:self sectionNameForSection:section];
             NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
             CGFloat rowHeight = 0;
@@ -126,12 +131,14 @@ typedef enum {
                 TLIndexPathItem *indexPathData = [[TLIndexPathItem alloc] initWithIdentifier:itemIdentifier sectionName:sectionName cellIdentifier:nil data:pose];
                 [items addObject:indexPathData];
                 rectangularHull = CGRectUnion(rectangularHull, pose.frame);
-                if (column == self.numberOfColumns - 1) {
+                if (item == itemCount - 1) {
+                    sectionHeight += rowHeight;
+                } else if (column == self.numberOfColumns - 1) {
                     sectionHeight += rowHeight + self.rowSpacing;
                     rowHeight = 0;
                 }
             }
-            sectionYOrigin += inset.bottom + sectionHeight + inset.top;
+            sectionYOrigin += contentInset.bottom + inset.bottom + sectionHeight + inset.top;
         }
         _dataModel = [[VCollectionViewDataModel alloc] initWithIndexPathItems:items];
         _dataModel.contentSize = rectangularHull.size;

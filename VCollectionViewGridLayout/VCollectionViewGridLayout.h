@@ -81,6 +81,11 @@ extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 @property (nonatomic) UIEdgeInsets sectionInset;
 
 /**
+ Specifies the padding placed around the content of each section
+ */
+@property (nonatomic) UIEdgeInsets sectionContentInset;
+
+/**
  Specifies the size of the cell. For varying size cells, use the
  `collectionView:layout:sizeForItemAtIndexPath:` delegate method instead.
  */
