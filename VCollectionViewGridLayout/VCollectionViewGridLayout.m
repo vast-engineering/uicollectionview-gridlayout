@@ -22,7 +22,7 @@
 #import "TLIndexPathUpdates.h"
 #import <CoreData/CoreData.h>
 
-NSString *const VCollectionViewElementKindSectionHeader = @"VCollectionViewElementKindSectionHeader";
+NSString *const VCollectionViewGridLayoutElementKindSectionHeader = @"VCollectionViewGridLayoutElementKindSectionHeader";
 
 @interface VCollectionViewDataModel : TLIndexPathDataModel
 @property (nonatomic) CGSize contentSize;
@@ -97,7 +97,7 @@ typedef enum {
                 headerHeight = self.headerSize.height;
             }
             sectionHeight += headerHeight;
-            UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
+            UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
             headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
             headerPose.zIndex = 1;
             [headerPoses addObject:headerPose];
