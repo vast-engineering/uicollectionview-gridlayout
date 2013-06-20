@@ -19,6 +19,7 @@
 
 #import "VCollectionViewGridLayout.h"
 #import "TLIndexPathItem.h"
+#import "TLIndexPathSectionInfo.h"
 #import "TLIndexPathUpdates.h"
 #import <CoreData/CoreData.h>
 
@@ -76,7 +77,7 @@ typedef enum {
 - (VCollectionViewDataModel *)dataModel
 {
     if (!_dataModel) {
-        NSMutableArray *items = [[NSMutableArray alloc] init];
+        NSMutableArray *sectionInfos = [[NSMutableArray alloc] init];
         NSMutableArray *headerPoses = [[NSMutableArray alloc] init];
         UIEdgeInsets inset = self.sectionInset;
         UIEdgeInsets contentInset = self.sectionContentInset;
@@ -98,9 +99,6 @@ typedef enum {
                 headerHeight = self.headerSize.height;
             }
             sectionHeight += headerHeight;
-            if (headerHeight) {
-                sectionHeight += contentInset.top;
-            }
             UICollectionViewLayoutAttributes *headerPose = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:VCollectionViewGridLayoutElementKindSectionHeader withIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
             headerPose.frame = CGRectMake(inset.left, sectionYOrigin, self.collectionView.frame.size.width - inset.left - inset.right, headerHeight);
             headerPose.zIndex = 1;
@@ -108,8 +106,12 @@ typedef enum {
             rectangularHull = CGRectUnion(rectangularHull, headerPose.frame);
             NSString *sectionName = [self.delegate collectionView:self.collectionView layout:self sectionNameForSection:section];
             NSInteger itemCount = [self.collectionView numberOfItemsInSection:section];
+            if (headerHeight > 0 && itemCount > 0) {
+                sectionHeight += contentInset.top;
+            }
             CGFloat rowHeight = 0;
             NSInteger column = 0;
+            NSMutableArray *items = [[NSMutableArray alloc] init];
             for (NSInteger item = 0; item < itemCount; item++) {
                 column = item % self.numberOfColumns;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
@@ -138,9 +140,14 @@ typedef enum {
                     rowHeight = 0;
                 }
             }
-            sectionYOrigin += contentInset.bottom + inset.bottom + sectionHeight + inset.top;
+            if (itemCount > 0) {
+                sectionYOrigin += contentInset.bottom;
+            }
+            sectionYOrigin += inset.bottom + sectionHeight + inset.top;
+            TLIndexPathSectionInfo *sectionInfo = [[TLIndexPathSectionInfo alloc] initWithItems:items andName:sectionName];
+            [sectionInfos addObject:sectionInfo];
         }
-        _dataModel = [[VCollectionViewDataModel alloc] initWithIndexPathItems:items];
+        _dataModel = [[VCollectionViewDataModel alloc] initWithIndexPathItemSectionInfos:sectionInfos];
         _dataModel.contentSize = rectangularHull.size;
         _dataModel.headerPoses = headerPoses;
         CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;// TODO This should take into account content offset
