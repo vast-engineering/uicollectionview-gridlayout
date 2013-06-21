@@ -99,7 +99,6 @@ extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 
 /**
  When set to YES, headers are sticky like `UITableView` header.
- TODO sticky headers are currently broken.
  */
 @property (nonatomic) BOOL stickyHeaders;
 

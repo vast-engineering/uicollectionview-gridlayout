@@ -47,6 +47,8 @@ typedef enum {
 @property (strong, nonatomic) VCollectionViewDataModel *oldDataModel;
 @property (strong, nonatomic) TLIndexPathUpdates *dataModelUpdates;
 @property (nonatomic) BOOL invalidatedForStickyHeader;
+@property (strong, nonatomic) UICollectionViewLayoutAttributes *stickyPose;
+@property (nonatomic) CGRect originalStickyPoseFrame;
 @end
 
 @implementation VCollectionViewGridLayout
@@ -436,12 +438,20 @@ typedef enum {
     }
 
     NSInteger topMostSection = topMostPose.indexPath.section;
+    
+    // Make the top most header pose sticky
 
-    // Make the top most header post sticky
+    //reset the frame of current sticky pose for calculation purposes
+    self.stickyPose.frame = self.originalStickyPoseFrame;
 
     UICollectionViewLayoutAttributes *topMostHeaderPose = dataModel.headerPoses[topMostSection];
+//    NSLog(@"indexPath=%@, frame=%@", topMostHeaderPose.indexPath, NSStringFromCGRect(topMostHeaderPose.frame));
     UICollectionViewLayoutAttributes *nextSectionPose = dataModel.headerPoses.count > topMostSection + 1 ? dataModel.headerPoses[topMostSection + 1] : nil;
     if (topMostHeaderPose) {
+        if (topMostHeaderPose != self.stickyPose) {
+            self.stickyPose = topMostHeaderPose;
+            self.originalStickyPoseFrame = topMostHeaderPose.frame;
+        }
         CGFloat pos = [self relativeScrollPositionForAttributes:topMostHeaderPose];
         if (pos < 0) {
             CGRect frame = topMostHeaderPose.frame;
