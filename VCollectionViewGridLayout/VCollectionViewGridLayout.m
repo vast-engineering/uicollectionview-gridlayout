@@ -404,10 +404,14 @@ typedef enum {
 
     // Determine the top most visible section
 
+    CGRect stickyBounds = dataModel.bounds;
+    stickyBounds.origin.y += self.stickyHeaderInsetTop;
+    stickyBounds.size.height -= self.stickyHeaderInsetTop;
+
     UICollectionViewLayoutAttributes *topMostPose;
     for (TLIndexPathItem *indexPathData in [dataModel items]) {
         UICollectionViewLayoutAttributes *pose = indexPathData.data;
-        if (!CGRectIntersectsRect(pose.frame, dataModel.bounds)) {
+        if (!CGRectIntersectsRect(pose.frame, stickyBounds)) {
             continue;
         } else if (topMostPose) {
             CGFloat currentTopMostPosition = [self relativeScrollPositionForAttributes:topMostPose];
@@ -420,7 +424,7 @@ typedef enum {
         }
     }
     for (UICollectionViewLayoutAttributes *pose in dataModel.headerPoses) {
-        if (!CGRectIntersectsRect(pose.frame, dataModel.bounds)) {
+        if (!CGRectIntersectsRect(pose.frame, stickyBounds)) {
             continue;
         } else if (topMostPose) {
             CGFloat currentTopMostPosition = [self relativeScrollPositionForAttributes:topMostPose];
@@ -453,9 +457,9 @@ typedef enum {
             self.originalStickyPoseFrame = topMostHeaderPose.frame;
         }
         CGFloat pos = [self relativeScrollPositionForAttributes:topMostHeaderPose];
-        if (pos < 0) {
+        if (pos < self.stickyHeaderInsetTop) {
             CGRect frame = topMostHeaderPose.frame;
-            frame.origin.y = dataModel.bounds.origin.y;
+            frame.origin.y = stickyBounds.origin.y;
             if (nextSectionPose) {
                 CGFloat delta = nextSectionPose.frame.origin.y - (frame.origin.y + frame.size.height);
                 if (delta < 0) frame.origin.y += delta;

@@ -103,6 +103,13 @@ extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 @property (nonatomic) BOOL stickyHeaders;
 
 /**
+ Determines the inset from the top of the collection view where headers stick
+ when using sticky headers. This can be useful for cases where the collection
+ view is partually covered by another view.
+ */
+@property (nonatomic) CGFloat stickyHeaderInsetTop;
+
+/**
  A convenience method for copying a layout (currently only copies configuration
  properties, not the actual layout attributes).
  */
