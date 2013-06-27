@@ -390,6 +390,18 @@ typedef enum {
     return YES;
 }
 
+#pragma mark - Sticky header
+
+- (void)setStickyHeaderInsetTop:(CGFloat)stickyHeaderInsetTop
+{
+    if (_stickyHeaderInsetTop != stickyHeaderInsetTop) {
+        _stickyHeaderInsetTop = stickyHeaderInsetTop;
+        [self updateDataModelForStickyHeader];
+        self.invalidatedForStickyHeader = YES;
+        [self invalidateLayout];
+    }
+}
+
 - (void)updateDataModelForStickyHeader
 {
     if (!self.stickyHeaders) {
