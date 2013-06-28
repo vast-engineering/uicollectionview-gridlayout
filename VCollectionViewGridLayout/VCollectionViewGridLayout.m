@@ -233,6 +233,14 @@ typedef enum {
 {
     UICollectionViewLayoutAttributes *mappedOldPose = [self mapOldPoseToNewBounds:oldPose];
     VCollectionViewChangeType changeType = [self changeTypeForOldPose:oldPose andNewPose:newPose andMappedOldPose:mappedOldPose];
+
+    //degenerate posses, i.e. poses with zero size, seem to behave better if we
+    //always return nil. Otherwise, there can be some visual artifacts.
+    BOOL degeneratePose = newPose.size.height == 0 || newPose.size.width == 0;
+    if (degeneratePose) {
+        return nil;
+    }
+    
     switch (changeType) {
         case VCollectionViewChangeTypeMoveIntoBuffer:
         {
