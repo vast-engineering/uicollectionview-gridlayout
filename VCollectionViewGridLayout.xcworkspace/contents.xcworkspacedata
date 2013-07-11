@@ -17,4 +17,7 @@
    <FileRef
       location = "group:Examples/Expand/Expand.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Examples/Sticky Headers/Sticky Headers.xcodeproj">
+   </FileRef>
 </Workspace>
