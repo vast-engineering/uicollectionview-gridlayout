@@ -174,6 +174,16 @@ typedef enum {
     return self.dataModel.contentSize;
 }
 
+- (void)prepareForCollectionViewUpdates:(NSArray *)updateItems
+{
+    //this try-catch block helps work around a `UICollectionView` bug where
+    //sections with supplmementary views crash when there are zero items
+    @try {
+        [super prepareForCollectionViewUpdates:updateItems];
+    } @catch (NSException *e) {
+    }
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
     self.dataModel.bufferRect = rect;

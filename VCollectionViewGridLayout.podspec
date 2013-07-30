@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name         = "VCollectionViewGridLayout"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A short description of VCollectionViewGridLayout."
   # s.description  = <<-DESC
   #                   An optional longer description of VCollectionViewGridLayout
