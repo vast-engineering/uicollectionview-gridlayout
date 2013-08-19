@@ -23,7 +23,7 @@
  */
 
 #import <UIKit/UIKit.h>
-#import "TLIndexPathDataModel.h"
+#import <TLIndexPathTools/TLIndexPathDataModel.h>
 
 extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 

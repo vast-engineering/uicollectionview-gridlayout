@@ -18,9 +18,9 @@
 //  the License.
 
 #import "VCollectionViewGridLayout.h"
-#import "TLIndexPathItem.h"
-#import "TLIndexPathSectionInfo.h"
-#import "TLIndexPathUpdates.h"
+#import <TLIndexPathTools/TLIndexPathItem.h>
+#import <TLIndexPathTools/TLIndexPathSectionInfo.h>
+#import <TLIndexPathTools/TLIndexPathUpdates.h>
 #import <CoreData/CoreData.h>
 
 NSString *const VCollectionViewGridLayoutElementKindSectionHeader = @"VCollectionViewGridLayoutElementKindSectionHeader";
