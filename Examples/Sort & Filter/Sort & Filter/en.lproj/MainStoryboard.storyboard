@@ -92,6 +92,9 @@
                             <constraint firstItem="VmV-dR-Ete" firstAttribute="top" secondItem="rk0-r8-K3K" secondAttribute="top" type="user" id="xxx-JG-oZ8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="layoutToggle" destination="5Wz-Kb-D71" id="gNO-gB-KAU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxm-JT-ulr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

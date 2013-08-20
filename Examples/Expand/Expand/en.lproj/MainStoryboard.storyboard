@@ -56,6 +56,9 @@
                             <constraint firstItem="YFh-Aj-Y4W" firstAttribute="bottom" secondItem="BvL-O7-jAB" secondAttribute="bottom" type="default" id="yqp-Np-lCH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="layoutToggle" destination="lp1-xe-Onn" id="krB-c8-JWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ih-Ns-K42" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

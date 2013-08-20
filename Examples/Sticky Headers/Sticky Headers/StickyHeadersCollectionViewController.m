@@ -51,7 +51,7 @@
     self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithSectionInfos:@[section1, section2, section3] identifierKeyPath:nil];
 }
 
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     UILabel *label = (UILabel *)[cell viewWithTag:1];
     label.text = [self.indexPathController.dataModel itemAtIndexPath:indexPath];

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ExpandViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UISegmentedControl *layoutToggle;
 - (IBAction)toggleLayout:(UISegmentedControl *)sender;
 @end

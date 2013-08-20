@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SortNFilterViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UISegmentedControl *layoutToggle;
 - (IBAction)toggleLayout:(UISegmentedControl *)sender;
 - (IBAction)shuffle;
 - (IBAction)filter:(UIButton *)sender;

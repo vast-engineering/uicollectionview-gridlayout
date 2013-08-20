@@ -25,7 +25,7 @@
     self.selected = [NSMutableSet set];
 }
 
-- (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     //retrieve the cell data for the given index path from the controller
     //and set the cell's text label and background color

@@ -45,6 +45,7 @@
     
     self.collectionViewController = (TLCollectionViewController *)segue.destinationViewController;
     self.collectionViewController.indexPathController.items = items;
+    [self toggleLayout:self.layoutToggle];
 }
 
 #pragma mark - Layout
@@ -52,7 +53,8 @@
 - (IBAction)toggleLayout:(UISegmentedControl *)sender {
     //preserve content offset across layout swap to workaournd UICollectionView bug
     CGPoint contentOffset = self.collectionViewController.collectionView.contentOffset;
-    UIEdgeInsets sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    UIEdgeInsets sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
+    self.collectionViewController.collectionView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
     if (sender.selectedSegmentIndex == 0) {
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionVertical;
