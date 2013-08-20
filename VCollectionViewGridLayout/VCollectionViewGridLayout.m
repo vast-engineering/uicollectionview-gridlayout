@@ -146,10 +146,10 @@ typedef enum {
                 sectionYOrigin += contentInset.bottom;
             }
             sectionYOrigin += inset.bottom + sectionHeight + inset.top;
-            TLIndexPathSectionInfo *sectionInfo = [[TLIndexPathSectionInfo alloc] initWithItems:items andName:sectionName];
+            TLIndexPathSectionInfo *sectionInfo = [[TLIndexPathSectionInfo alloc] initWithItems:items name:sectionName];
             [sectionInfos addObject:sectionInfo];
         }
-        _dataModel = [[VCollectionViewDataModel alloc] initWithIndexPathItemSectionInfos:sectionInfos];
+        _dataModel = [[VCollectionViewDataModel alloc] initWithSectionInfos:sectionInfos identifierKeyPath:nil];
         _dataModel.contentSize = rectangularHull.size;
         _dataModel.headerPoses = headerPoses;
         CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;// TODO This should take into account content offset

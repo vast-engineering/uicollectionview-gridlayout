@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 tmoose@vast.com. All rights reserved.
 //
 
-#import "TLCollectionViewController.h"
+#import <TLIndexPathTools/TLCollectionViewController.h>
 
 @interface StickyHeadersCollectionViewController : TLCollectionViewController
 

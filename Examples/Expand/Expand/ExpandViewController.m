@@ -7,8 +7,8 @@
 //
 
 #import "ExpandViewController.h"
-#import "TLCollectionViewController.h"
-#import "VCollectionViewGridLayout.h"
+#import <TLIndexPathTools/TLCollectionViewController.h>
+#import <VCollectionViewGridLayout/VCollectionViewGridLayout.h>
 #import "UIColor+Hex.h"
 
 @interface ExpandViewController ()

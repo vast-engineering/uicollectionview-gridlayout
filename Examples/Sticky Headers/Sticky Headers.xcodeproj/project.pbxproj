@@ -17,34 +17,12 @@
 		86512027178E56D4004829B6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86512026178E56D4004829B6 /* Default@2x.png */; };
 		86512029178E56D4004829B6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 86512028178E56D4004829B6 /* Default-568h@2x.png */; };
 		8651202C178E56D4004829B6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8651202A178E56D4004829B6 /* MainStoryboard.storyboard */; };
-		86512038178E5740004829B6 /* VCollectionViewGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512037178E5740004829B6 /* VCollectionViewGridLayout.m */; };
-		86512072178E5750004829B6 /* TLIndexPathController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651203C178E5750004829B6 /* TLIndexPathController.m */; };
-		86512073178E5750004829B6 /* TLIndexPathDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651203F178E5750004829B6 /* TLIndexPathDataModel.m */; };
-		86512074178E5750004829B6 /* TLIndexPathItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512041178E5750004829B6 /* TLIndexPathItem.m */; };
-		86512075178E5750004829B6 /* TLIndexPathSectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512043178E5750004829B6 /* TLIndexPathSectionInfo.m */; };
-		86512076178E5750004829B6 /* TLIndexPathUpdates.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512045178E5750004829B6 /* TLIndexPathUpdates.m */; };
-		86512077178E5750004829B6 /* TLNoResultsTableDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512047178E5750004829B6 /* TLNoResultsTableDataModel.m */; };
-		86512078178E5750004829B6 /* TLCollapsibleDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651204B178E5750004829B6 /* TLCollapsibleDataModel.m */; };
-		86512079178E5750004829B6 /* TLCollapsibleHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651204D178E5750004829B6 /* TLCollapsibleHeaderView.m */; };
-		8651207A178E5750004829B6 /* TLCollapsibleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651204F178E5750004829B6 /* TLCollapsibleTableViewController.m */; };
-		8651207B178E5750004829B6 /* TLGridDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512053178E5750004829B6 /* TLGridDataModel.m */; };
-		8651207C178E5750004829B6 /* TLGridHeaderItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512055178E5750004829B6 /* TLGridHeaderItem.m */; };
-		8651207D178E5750004829B6 /* TLGridItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512057178E5750004829B6 /* TLGridItem.m */; };
-		8651207E178E5750004829B6 /* TLGridCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651205A178E5750004829B6 /* TLGridCellView.m */; };
-		8651207F178E5750004829B6 /* TLGridHeaderCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651205C178E5750004829B6 /* TLGridHeaderCellView.m */; };
-		86512080178E5750004829B6 /* TLGridHeaderRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651205E178E5750004829B6 /* TLGridHeaderRowView.m */; };
-		86512081178E5750004829B6 /* TLGridRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512060178E5750004829B6 /* TLGridRowView.m */; };
-		86512082178E5750004829B6 /* TLLayerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512063178E5750004829B6 /* TLLayerDelegate.m */; };
-		86512083178E5750004829B6 /* TLIndexPathTreeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512066178E5750004829B6 /* TLIndexPathTreeItem.m */; };
-		86512084178E5750004829B6 /* TLTreeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512068178E5750004829B6 /* TLTreeDataModel.m */; };
-		86512085178E5750004829B6 /* TLTreeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651206A178E5750004829B6 /* TLTreeTableViewController.m */; };
-		86512086178E5750004829B6 /* UITableViewController+ScrollOptimizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651206C178E5750004829B6 /* UITableViewController+ScrollOptimizer.m */; };
-		86512087178E5750004829B6 /* TLCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651206F178E5750004829B6 /* TLCollectionViewController.m */; };
-		86512088178E5750004829B6 /* TLTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512071178E5750004829B6 /* TLTableViewController.m */; };
 		8651208A178E5769004829B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86512089178E5769004829B6 /* CoreData.framework */; };
 		8651208C178E5771004829B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8651208B178E5771004829B6 /* QuartzCore.framework */; };
 		8651208F178E57A6004829B6 /* StickyHeadersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651208E178E57A6004829B6 /* StickyHeadersCollectionViewController.m */; };
 		86512092178E5E8E004829B6 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512091178E5E8E004829B6 /* HeaderView.m */; };
+		B1E86A5317C41E40009BD250 /* libTLIndexPathTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */; };
+		B1E86A5517C41E43009BD250 /* libVCollectionViewGridLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,61 +40,14 @@
 		86512026178E56D4004829B6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		86512028178E56D4004829B6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8651202B178E56D4004829B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		86512036178E5740004829B6 /* VCollectionViewGridLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCollectionViewGridLayout.h; sourceTree = "<group>"; };
-		86512037178E5740004829B6 /* VCollectionViewGridLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCollectionViewGridLayout.m; sourceTree = "<group>"; };
-		8651203B178E5750004829B6 /* TLIndexPathController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathController.h; sourceTree = "<group>"; };
-		8651203C178E5750004829B6 /* TLIndexPathController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathController.m; sourceTree = "<group>"; };
-		8651203E178E5750004829B6 /* TLIndexPathDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathDataModel.h; sourceTree = "<group>"; };
-		8651203F178E5750004829B6 /* TLIndexPathDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathDataModel.m; sourceTree = "<group>"; };
-		86512040178E5750004829B6 /* TLIndexPathItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathItem.h; sourceTree = "<group>"; };
-		86512041178E5750004829B6 /* TLIndexPathItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathItem.m; sourceTree = "<group>"; };
-		86512042178E5750004829B6 /* TLIndexPathSectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathSectionInfo.h; sourceTree = "<group>"; };
-		86512043178E5750004829B6 /* TLIndexPathSectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathSectionInfo.m; sourceTree = "<group>"; };
-		86512044178E5750004829B6 /* TLIndexPathUpdates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathUpdates.h; sourceTree = "<group>"; };
-		86512045178E5750004829B6 /* TLIndexPathUpdates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathUpdates.m; sourceTree = "<group>"; };
-		86512046178E5750004829B6 /* TLNoResultsTableDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLNoResultsTableDataModel.h; sourceTree = "<group>"; };
-		86512047178E5750004829B6 /* TLNoResultsTableDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLNoResultsTableDataModel.m; sourceTree = "<group>"; };
-		8651204A178E5750004829B6 /* TLCollapsibleDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollapsibleDataModel.h; sourceTree = "<group>"; };
-		8651204B178E5750004829B6 /* TLCollapsibleDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollapsibleDataModel.m; sourceTree = "<group>"; };
-		8651204C178E5750004829B6 /* TLCollapsibleHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollapsibleHeaderView.h; sourceTree = "<group>"; };
-		8651204D178E5750004829B6 /* TLCollapsibleHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollapsibleHeaderView.m; sourceTree = "<group>"; };
-		8651204E178E5750004829B6 /* TLCollapsibleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollapsibleTableViewController.h; sourceTree = "<group>"; };
-		8651204F178E5750004829B6 /* TLCollapsibleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollapsibleTableViewController.m; sourceTree = "<group>"; };
-		86512052178E5750004829B6 /* TLGridDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridDataModel.h; sourceTree = "<group>"; };
-		86512053178E5750004829B6 /* TLGridDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridDataModel.m; sourceTree = "<group>"; };
-		86512054178E5750004829B6 /* TLGridHeaderItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridHeaderItem.h; sourceTree = "<group>"; };
-		86512055178E5750004829B6 /* TLGridHeaderItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridHeaderItem.m; sourceTree = "<group>"; };
-		86512056178E5750004829B6 /* TLGridItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridItem.h; sourceTree = "<group>"; };
-		86512057178E5750004829B6 /* TLGridItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridItem.m; sourceTree = "<group>"; };
-		86512059178E5750004829B6 /* TLGridCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridCellView.h; sourceTree = "<group>"; };
-		8651205A178E5750004829B6 /* TLGridCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridCellView.m; sourceTree = "<group>"; };
-		8651205B178E5750004829B6 /* TLGridHeaderCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridHeaderCellView.h; sourceTree = "<group>"; };
-		8651205C178E5750004829B6 /* TLGridHeaderCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridHeaderCellView.m; sourceTree = "<group>"; };
-		8651205D178E5750004829B6 /* TLGridHeaderRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridHeaderRowView.h; sourceTree = "<group>"; };
-		8651205E178E5750004829B6 /* TLGridHeaderRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridHeaderRowView.m; sourceTree = "<group>"; };
-		8651205F178E5750004829B6 /* TLGridRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLGridRowView.h; sourceTree = "<group>"; };
-		86512060178E5750004829B6 /* TLGridRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLGridRowView.m; sourceTree = "<group>"; };
-		86512061178E5750004829B6 /* TLDynamicSizeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLDynamicSizeView.h; sourceTree = "<group>"; };
-		86512062178E5750004829B6 /* TLLayerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLLayerDelegate.h; sourceTree = "<group>"; };
-		86512063178E5750004829B6 /* TLLayerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLLayerDelegate.m; sourceTree = "<group>"; };
-		86512065178E5750004829B6 /* TLIndexPathTreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLIndexPathTreeItem.h; sourceTree = "<group>"; };
-		86512066178E5750004829B6 /* TLIndexPathTreeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLIndexPathTreeItem.m; sourceTree = "<group>"; };
-		86512067178E5750004829B6 /* TLTreeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTreeDataModel.h; sourceTree = "<group>"; };
-		86512068178E5750004829B6 /* TLTreeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTreeDataModel.m; sourceTree = "<group>"; };
-		86512069178E5750004829B6 /* TLTreeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTreeTableViewController.h; sourceTree = "<group>"; };
-		8651206A178E5750004829B6 /* TLTreeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTreeTableViewController.m; sourceTree = "<group>"; };
-		8651206B178E5750004829B6 /* UITableViewController+ScrollOptimizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+ScrollOptimizer.h"; sourceTree = "<group>"; };
-		8651206C178E5750004829B6 /* UITableViewController+ScrollOptimizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+ScrollOptimizer.m"; sourceTree = "<group>"; };
-		8651206E178E5750004829B6 /* TLCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLCollectionViewController.h; sourceTree = "<group>"; };
-		8651206F178E5750004829B6 /* TLCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLCollectionViewController.m; sourceTree = "<group>"; };
-		86512070178E5750004829B6 /* TLTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTableViewController.h; sourceTree = "<group>"; };
-		86512071178E5750004829B6 /* TLTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTableViewController.m; sourceTree = "<group>"; };
 		86512089178E5769004829B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8651208B178E5771004829B6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8651208D178E57A6004829B6 /* StickyHeadersCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeadersCollectionViewController.h; sourceTree = "<group>"; };
 		8651208E178E57A6004829B6 /* StickyHeadersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeadersCollectionViewController.m; sourceTree = "<group>"; };
 		86512090178E5E8E004829B6 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		86512091178E5E8E004829B6 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libTLIndexPathTools.a; path = "../../TLIndexPathTools/build/Release-iphoneos/libTLIndexPathTools.a"; sourceTree = "<group>"; };
+		B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libVCollectionViewGridLayout.a; path = "../../build/Release-iphoneos/libVCollectionViewGridLayout.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E86A5517C41E43009BD250 /* libVCollectionViewGridLayout.a in Frameworks */,
+				B1E86A5317C41E40009BD250 /* libTLIndexPathTools.a in Frameworks */,
 				8651208C178E5771004829B6 /* QuartzCore.framework in Frameworks */,
 				8651208A178E5769004829B6 /* CoreData.framework in Frameworks */,
 				86512013178E56D4004829B6 /* UIKit.framework in Frameworks */,
@@ -138,10 +71,6 @@
 		86512006178E56D3004829B6 = {
 			isa = PBXGroup;
 			children = (
-				8651208B178E5771004829B6 /* QuartzCore.framework */,
-				86512089178E5769004829B6 /* CoreData.framework */,
-				86512039178E5750004829B6 /* TLIndexPathTools */,
-				86512035178E5740004829B6 /* VCollectionViewGridLayout */,
 				86512018178E56D4004829B6 /* Sticky Headers */,
 				86512011178E56D4004829B6 /* Frameworks */,
 				86512010178E56D4004829B6 /* Products */,
@@ -159,6 +88,10 @@
 		86512011178E56D4004829B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */,
+				B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */,
+				8651208B178E5771004829B6 /* QuartzCore.framework */,
+				86512089178E5769004829B6 /* CoreData.framework */,
 				86512012178E56D4004829B6 /* UIKit.framework */,
 				86512014178E56D4004829B6 /* Foundation.framework */,
 				86512016178E56D4004829B6 /* CoreGraphics.framework */,
@@ -193,142 +126,6 @@
 				86512028178E56D4004829B6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		86512035178E5740004829B6 /* VCollectionViewGridLayout */ = {
-			isa = PBXGroup;
-			children = (
-				86512036178E5740004829B6 /* VCollectionViewGridLayout.h */,
-				86512037178E5740004829B6 /* VCollectionViewGridLayout.m */,
-			);
-			name = VCollectionViewGridLayout;
-			path = ../../VCollectionViewGridLayout;
-			sourceTree = "<group>";
-		};
-		86512039178E5750004829B6 /* TLIndexPathTools */ = {
-			isa = PBXGroup;
-			children = (
-				8651203A178E5750004829B6 /* Controllers */,
-				8651203D178E5750004829B6 /* Data Models */,
-				86512048178E5750004829B6 /* Utils */,
-				8651206D178E5750004829B6 /* View Controllers */,
-			);
-			path = TLIndexPathTools;
-			sourceTree = "<group>";
-		};
-		8651203A178E5750004829B6 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8651203B178E5750004829B6 /* TLIndexPathController.h */,
-				8651203C178E5750004829B6 /* TLIndexPathController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		8651203D178E5750004829B6 /* Data Models */ = {
-			isa = PBXGroup;
-			children = (
-				8651203E178E5750004829B6 /* TLIndexPathDataModel.h */,
-				8651203F178E5750004829B6 /* TLIndexPathDataModel.m */,
-				86512040178E5750004829B6 /* TLIndexPathItem.h */,
-				86512041178E5750004829B6 /* TLIndexPathItem.m */,
-				86512042178E5750004829B6 /* TLIndexPathSectionInfo.h */,
-				86512043178E5750004829B6 /* TLIndexPathSectionInfo.m */,
-				86512044178E5750004829B6 /* TLIndexPathUpdates.h */,
-				86512045178E5750004829B6 /* TLIndexPathUpdates.m */,
-				86512046178E5750004829B6 /* TLNoResultsTableDataModel.h */,
-				86512047178E5750004829B6 /* TLNoResultsTableDataModel.m */,
-			);
-			path = "Data Models";
-			sourceTree = "<group>";
-		};
-		86512048178E5750004829B6 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				86512049178E5750004829B6 /* Collapsible */,
-				86512050178E5750004829B6 /* Grid */,
-				86512061178E5750004829B6 /* TLDynamicSizeView.h */,
-				86512062178E5750004829B6 /* TLLayerDelegate.h */,
-				86512063178E5750004829B6 /* TLLayerDelegate.m */,
-				86512064178E5750004829B6 /* Tree */,
-				8651206B178E5750004829B6 /* UITableViewController+ScrollOptimizer.h */,
-				8651206C178E5750004829B6 /* UITableViewController+ScrollOptimizer.m */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		86512049178E5750004829B6 /* Collapsible */ = {
-			isa = PBXGroup;
-			children = (
-				8651204A178E5750004829B6 /* TLCollapsibleDataModel.h */,
-				8651204B178E5750004829B6 /* TLCollapsibleDataModel.m */,
-				8651204C178E5750004829B6 /* TLCollapsibleHeaderView.h */,
-				8651204D178E5750004829B6 /* TLCollapsibleHeaderView.m */,
-				8651204E178E5750004829B6 /* TLCollapsibleTableViewController.h */,
-				8651204F178E5750004829B6 /* TLCollapsibleTableViewController.m */,
-			);
-			path = Collapsible;
-			sourceTree = "<group>";
-		};
-		86512050178E5750004829B6 /* Grid */ = {
-			isa = PBXGroup;
-			children = (
-				86512051178E5750004829B6 /* Data Model */,
-				86512058178E5750004829B6 /* Views */,
-			);
-			path = Grid;
-			sourceTree = "<group>";
-		};
-		86512051178E5750004829B6 /* Data Model */ = {
-			isa = PBXGroup;
-			children = (
-				86512052178E5750004829B6 /* TLGridDataModel.h */,
-				86512053178E5750004829B6 /* TLGridDataModel.m */,
-				86512054178E5750004829B6 /* TLGridHeaderItem.h */,
-				86512055178E5750004829B6 /* TLGridHeaderItem.m */,
-				86512056178E5750004829B6 /* TLGridItem.h */,
-				86512057178E5750004829B6 /* TLGridItem.m */,
-			);
-			path = "Data Model";
-			sourceTree = "<group>";
-		};
-		86512058178E5750004829B6 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				86512059178E5750004829B6 /* TLGridCellView.h */,
-				8651205A178E5750004829B6 /* TLGridCellView.m */,
-				8651205B178E5750004829B6 /* TLGridHeaderCellView.h */,
-				8651205C178E5750004829B6 /* TLGridHeaderCellView.m */,
-				8651205D178E5750004829B6 /* TLGridHeaderRowView.h */,
-				8651205E178E5750004829B6 /* TLGridHeaderRowView.m */,
-				8651205F178E5750004829B6 /* TLGridRowView.h */,
-				86512060178E5750004829B6 /* TLGridRowView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		86512064178E5750004829B6 /* Tree */ = {
-			isa = PBXGroup;
-			children = (
-				86512065178E5750004829B6 /* TLIndexPathTreeItem.h */,
-				86512066178E5750004829B6 /* TLIndexPathTreeItem.m */,
-				86512067178E5750004829B6 /* TLTreeDataModel.h */,
-				86512068178E5750004829B6 /* TLTreeDataModel.m */,
-				86512069178E5750004829B6 /* TLTreeTableViewController.h */,
-				8651206A178E5750004829B6 /* TLTreeTableViewController.m */,
-			);
-			path = Tree;
-			sourceTree = "<group>";
-		};
-		8651206D178E5750004829B6 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8651206E178E5750004829B6 /* TLCollectionViewController.h */,
-				8651206F178E5750004829B6 /* TLCollectionViewController.m */,
-				86512070178E5750004829B6 /* TLTableViewController.h */,
-				86512071178E5750004829B6 /* TLTableViewController.m */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,30 +196,6 @@
 			files = (
 				8651201F178E56D4004829B6 /* main.m in Sources */,
 				86512023178E56D4004829B6 /* AppDelegate.m in Sources */,
-				86512038178E5740004829B6 /* VCollectionViewGridLayout.m in Sources */,
-				86512072178E5750004829B6 /* TLIndexPathController.m in Sources */,
-				86512073178E5750004829B6 /* TLIndexPathDataModel.m in Sources */,
-				86512074178E5750004829B6 /* TLIndexPathItem.m in Sources */,
-				86512075178E5750004829B6 /* TLIndexPathSectionInfo.m in Sources */,
-				86512076178E5750004829B6 /* TLIndexPathUpdates.m in Sources */,
-				86512077178E5750004829B6 /* TLNoResultsTableDataModel.m in Sources */,
-				86512078178E5750004829B6 /* TLCollapsibleDataModel.m in Sources */,
-				86512079178E5750004829B6 /* TLCollapsibleHeaderView.m in Sources */,
-				8651207A178E5750004829B6 /* TLCollapsibleTableViewController.m in Sources */,
-				8651207B178E5750004829B6 /* TLGridDataModel.m in Sources */,
-				8651207C178E5750004829B6 /* TLGridHeaderItem.m in Sources */,
-				8651207D178E5750004829B6 /* TLGridItem.m in Sources */,
-				8651207E178E5750004829B6 /* TLGridCellView.m in Sources */,
-				8651207F178E5750004829B6 /* TLGridHeaderCellView.m in Sources */,
-				86512080178E5750004829B6 /* TLGridHeaderRowView.m in Sources */,
-				86512081178E5750004829B6 /* TLGridRowView.m in Sources */,
-				86512082178E5750004829B6 /* TLLayerDelegate.m in Sources */,
-				86512083178E5750004829B6 /* TLIndexPathTreeItem.m in Sources */,
-				86512084178E5750004829B6 /* TLTreeDataModel.m in Sources */,
-				86512085178E5750004829B6 /* TLTreeTableViewController.m in Sources */,
-				86512086178E5750004829B6 /* UITableViewController+ScrollOptimizer.m in Sources */,
-				86512087178E5750004829B6 /* TLCollectionViewController.m in Sources */,
-				86512088178E5750004829B6 /* TLTableViewController.m in Sources */,
 				8651208F178E57A6004829B6 /* StickyHeadersCollectionViewController.m in Sources */,
 				86512092178E5E8E004829B6 /* HeaderView.m in Sources */,
 			);

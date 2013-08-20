@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Vast.com. All rights reserved.
 //
 
-#import "TLCollectionViewController.h"
-#import "VCollectionViewGridLayout.h"
+#import <TLIndexPathTools/TLCollectionViewController.h>
+#import <VCollectionViewGridLayout/VCollectionViewGridLayout.h>
 
 @interface SortNFilterCollectionViewController : TLCollectionViewController <UICollectionViewDelegateFlowLayout, VCollectionViewGridLayoutDelegate>
 @end

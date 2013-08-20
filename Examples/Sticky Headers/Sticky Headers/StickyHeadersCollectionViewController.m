@@ -7,9 +7,10 @@
 //
 
 #import "StickyHeadersCollectionViewController.h"
-#import "TLIndexPathSectionInfo.h"
-#import "TLIndexPathDataModel.h"
-#import "VCollectionViewGridLayout.h"
+#import <TLIndexPathTools/TLIndexPathSectionInfo.h>
+#import <TLIndexPathTools/TLIndexPathDataModel.h>
+#import <VCollectionViewGridLayout/VCollectionViewGridLayout.h>
+
 #import "HeaderView.h"
 
 @interface StickyHeadersCollectionViewController ()
@@ -37,20 +38,17 @@
     
     TLIndexPathSectionInfo *section1 = [[TLIndexPathSectionInfo alloc] initWithItems:@[
                                         @"1.1", @"1.2", @"1.3", @"1.4", @"1.5", @"1.6",]
-                                                                             andName:@"Section 1"];
+                                                                             name:@"Section 1"];
 
     TLIndexPathSectionInfo *section2 = [[TLIndexPathSectionInfo alloc] initWithItems:@[
                                         @"2.1", @"2.2", @"2.3", @"2.4",]
-                                                                             andName:@"Section 2"];
+                                                                             name:@"Section 2"];
 
     TLIndexPathSectionInfo *section3 = [[TLIndexPathSectionInfo alloc] initWithItems:@[
                                         @"3.1", @"3.2", @"3.3",]
-                                                                             andName:@"Section 3"];
+                                                                             name:@"Section 3"];
     
-    self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithSectionInfos:@[
-                                          section1, section2, section3]
-                                                                       andIdentifierKeyPath:nil
-                                                                   andCellIdentifierKeyPath:nil];
+    self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithSectionInfos:@[section1, section2, section3] identifierKeyPath:nil];
 }
 
 - (void)configureCell:(UICollectionViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
