@@ -387,7 +387,8 @@ typedef enum {
     if (self.invalidatedForStickyHeader) {
         self.invalidatedForStickyHeader = NO;
     } else {
-        if (_dataModel) {
+        // In iOS 7, "invalidateLayout" method is called additional time by system after delegate is deallocated. We shouldn't clean dataModel if delegate is nil because otherwise we wouldn't be able to initialize dataModel properly.
+        if (_dataModel && self.delegate) {
             self.oldDataModel = self.dataModel;
             self.dataModel = nil;
             self.dataModelUpdates = nil;
