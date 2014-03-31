@@ -110,6 +110,12 @@ extern NSString *const VCollectionViewGridLayoutElementKindSectionHeader;
 @property (nonatomic) CGFloat stickyHeaderInsetTop;
 
 /**
+ Optional callback to modify the layout attributes. Return a non-nil value to 
+ replace the given `layoutAttributes` with the returned instance.
+ */
+@property (strong, nonatomic) UICollectionViewLayoutAttributes *(^updateLayoutAttributes)(UICollectionViewLayoutAttributes *layoutAttributes);
+
+/**
  A convenience method for copying a layout (currently only copies configuration
  properties, not the actual layout attributes).
  */

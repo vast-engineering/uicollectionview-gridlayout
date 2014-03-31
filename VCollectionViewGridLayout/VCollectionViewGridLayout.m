@@ -118,7 +118,8 @@ typedef enum {
                 column = item % self.numberOfColumns;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForItem:item inSection:section];
                 NSString *itemIdentifier = [self.delegate collectionView:self.collectionView layout:self identifierForItemAtIndexPath:indexPath];
-                UICollectionViewLayoutAttributes *pose = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+                UICollectionViewLayoutAttributes *pose = [[[self class] layoutAttributesClass]
+                                                          layoutAttributesForCellWithIndexPath:indexPath];
                 CGSize itemSize;
                 if ([self.delegate respondsToSelector:@selector(collectionView:layout:sizeForItemAtIndexPath:)]) {
                     itemSize = [self.delegate collectionView:self.collectionView layout:self sizeForItemAtIndexPath:indexPath];
@@ -132,6 +133,10 @@ typedef enum {
                 center.x = firstXCenter + (column * centerXSpacing);
                 pose.center = center;
                 pose.alpha = 1;
+                if (self.updateLayoutAttributes) {
+                    UICollectionViewLayoutAttributes *updatedPose = self.updateLayoutAttributes(pose);
+                    pose = updatedPose ? updatedPose : pose;
+                }
                 TLIndexPathItem *indexPathData = [[TLIndexPathItem alloc] initWithIdentifier:itemIdentifier sectionName:sectionName cellIdentifier:nil data:pose];
                 [items addObject:indexPathData];
                 rectangularHull = CGRectUnion(rectangularHull, pose.frame);
