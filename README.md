@@ -14,8 +14,11 @@ The original intent of this library was to fix a multitude of animation issues w
 
 Use CocoaPods or install manually:
 
-
 1. Copy `VCollectionViewGridLayout.*` into your project
 2. Install [TLIndexPathTools][1].
+
+## Examples
+
+Be sure to open the workspace for each example rather than the project.
 
 [1]:https://github.com/wtmoose/TLIndexPathTools

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0291E2068A49688E9731BF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44B4DCB96FD043A7ADC56A4E /* libPods.a */; };
 		86BBB2BC1771630600CFA35C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BBB2BB1771630600CFA35C /* UIKit.framework */; };
 		86BBB2BE1771630600CFA35C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BBB2BD1771630600CFA35C /* Foundation.framework */; };
 		86BBB2C01771630600CFA35C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86BBB2BF1771630600CFA35C /* CoreGraphics.framework */; };
@@ -22,11 +23,11 @@
 		86BBB338177164A200CFA35C /* ExpandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB337177164A200CFA35C /* ExpandViewController.m */; };
 		86BBB33B177164BA00CFA35C /* ExpandCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB33A177164BA00CFA35C /* ExpandCollectionViewController.m */; };
 		86BBB33E1771672400CFA35C /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB33D1771672400CFA35C /* UIColor+Hex.m */; };
-		B1E86A5817C41F17009BD250 /* libTLIndexPathTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5617C41F17009BD250 /* libTLIndexPathTools.a */; };
-		B1E86A5917C41F17009BD250 /* libVCollectionViewGridLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5717C41F17009BD250 /* libVCollectionViewGridLayout.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44B4DCB96FD043A7ADC56A4E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		70F58E714EA7410487882B42 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		86BBB2B81771630500CFA35C /* Expand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Expand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86BBB2BB1771630600CFA35C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86BBB2BD1771630600CFA35C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,8 +50,6 @@
 		86BBB33A177164BA00CFA35C /* ExpandCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandCollectionViewController.m; sourceTree = "<group>"; };
 		86BBB33C1771672400CFA35C /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		86BBB33D1771672400CFA35C /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		B1E86A5617C41F17009BD250 /* libTLIndexPathTools.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libTLIndexPathTools.a; path = "../../TLIndexPathTools/build/Release-iphoneos/libTLIndexPathTools.a"; sourceTree = "<group>"; };
-		B1E86A5717C41F17009BD250 /* libVCollectionViewGridLayout.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libVCollectionViewGridLayout.a; path = "../../build/Release-iphoneos/libVCollectionViewGridLayout.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +57,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E86A5817C41F17009BD250 /* libTLIndexPathTools.a in Frameworks */,
-				B1E86A5917C41F17009BD250 /* libVCollectionViewGridLayout.a in Frameworks */,
 				86BBB3351771639700CFA35C /* QuartzCore.framework in Frameworks */,
 				86BBB3331771639000CFA35C /* CoreData.framework in Frameworks */,
 				86BBB2BC1771630600CFA35C /* UIKit.framework in Frameworks */,
 				86BBB2BE1771630600CFA35C /* Foundation.framework in Frameworks */,
 				86BBB2C01771630600CFA35C /* CoreGraphics.framework in Frameworks */,
+				7D0291E2068A49688E9731BF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +75,7 @@
 				86BBB2C11771630600CFA35C /* Expand */,
 				86BBB2BA1771630500CFA35C /* Frameworks */,
 				86BBB2B91771630500CFA35C /* Products */,
+				70F58E714EA7410487882B42 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,13 +90,12 @@
 		86BBB2BA1771630500CFA35C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1E86A5617C41F17009BD250 /* libTLIndexPathTools.a */,
-				B1E86A5717C41F17009BD250 /* libVCollectionViewGridLayout.a */,
 				86BBB3341771639700CFA35C /* QuartzCore.framework */,
 				86BBB3321771639000CFA35C /* CoreData.framework */,
 				86BBB2BB1771630600CFA35C /* UIKit.framework */,
 				86BBB2BD1771630600CFA35C /* Foundation.framework */,
 				86BBB2BF1771630600CFA35C /* CoreGraphics.framework */,
+				44B4DCB96FD043A7ADC56A4E /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86BBB2DB1771630600CFA35C /* Build configuration list for PBXNativeTarget "Expand" */;
 			buildPhases = (
+				6842A8E1B6BB41B5B14EDA28 /* Check Pods Manifest.lock */,
 				86BBB2B41771630500CFA35C /* Sources */,
 				86BBB2B51771630500CFA35C /* Frameworks */,
 				86BBB2B61771630500CFA35C /* Resources */,
+				B1902563E8854B6CB94DAF4C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +193,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6842A8E1B6BB41B5B14EDA28 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B1902563E8854B6CB94DAF4C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86BBB2B41771630500CFA35C /* Sources */ = {
@@ -287,6 +320,7 @@
 		};
 		86BBB2DC1771630600CFA35C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70F58E714EA7410487882B42 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expand/Expand-Prefix.pch";
@@ -298,6 +332,7 @@
 		};
 		86BBB2DD1771630600CFA35C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70F58E714EA7410487882B42 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Expand/Expand-Prefix.pch";

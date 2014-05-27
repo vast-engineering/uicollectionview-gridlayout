@@ -10,7 +10,6 @@
 		B1E86A3717C41C3B009BD250 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A3617C41C3B009BD250 /* Foundation.framework */; };
 		B1E86A3C17C41C3B009BD250 /* VCollectionViewGridLayout.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B1E86A3B17C41C3B009BD250 /* VCollectionViewGridLayout.h */; };
 		B1E86A3E17C41C3B009BD250 /* VCollectionViewGridLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E86A3D17C41C3B009BD250 /* VCollectionViewGridLayout.m */; };
-		B1E86A5117C41D80009BD250 /* libTLIndexPathTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5017C41D80009BD250 /* libTLIndexPathTools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +26,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		861240B41934FBB60028A7B7 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		861240B51934FBB60028A7B7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		861240B61934FBB60028A7B7 /* VCollectionViewGridLayout.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VCollectionViewGridLayout.podspec; sourceTree = "<group>"; };
 		B1E86A3317C41C3B009BD250 /* libVCollectionViewGridLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libVCollectionViewGridLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1E86A3617C41C3B009BD250 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B1E86A3A17C41C3B009BD250 /* VCollectionViewGridLayout-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VCollectionViewGridLayout-Prefix.pch"; sourceTree = "<group>"; };
 		B1E86A3B17C41C3B009BD250 /* VCollectionViewGridLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCollectionViewGridLayout.h; sourceTree = "<group>"; };
 		B1E86A3D17C41C3B009BD250 /* VCollectionViewGridLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCollectionViewGridLayout.m; sourceTree = "<group>"; };
-		B1E86A5017C41D80009BD250 /* libTLIndexPathTools.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libTLIndexPathTools.a; path = "TLIndexPathTools/build/Release-iphoneos/libTLIndexPathTools.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E86A5117C41D80009BD250 /* libTLIndexPathTools.a in Frameworks */,
 				B1E86A3717C41C3B009BD250 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +51,9 @@
 		B1E86A2A17C41C3B009BD250 = {
 			isa = PBXGroup;
 			children = (
+				861240B41934FBB60028A7B7 /* LICENSE */,
+				861240B51934FBB60028A7B7 /* README.md */,
+				861240B61934FBB60028A7B7 /* VCollectionViewGridLayout.podspec */,
 				B1E86A3817C41C3B009BD250 /* VCollectionViewGridLayout */,
 				B1E86A3517C41C3B009BD250 /* Frameworks */,
 				B1E86A3417C41C3B009BD250 /* Products */,
@@ -68,7 +71,6 @@
 		B1E86A3517C41C3B009BD250 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1E86A5017C41D80009BD250 /* libTLIndexPathTools.a */,
 				B1E86A3617C41C3B009BD250 /* Foundation.framework */,
 			);
 			name = Frameworks;

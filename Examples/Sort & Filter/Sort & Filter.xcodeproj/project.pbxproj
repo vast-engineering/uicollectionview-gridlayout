@@ -22,8 +22,7 @@
 		86BBB25C177153FA00CFA35C /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB257177153FA00CFA35C /* UIColor+Hex.m */; };
 		86BBB25D177153FA00CFA35C /* SortNFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB259177153FA00CFA35C /* SortNFilterViewController.m */; };
 		86BBB25E177153FA00CFA35C /* SortNFilterCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86BBB25A177153FA00CFA35C /* SortNFilterCollectionViewController.m */; };
-		B1E86A5C17C41F99009BD250 /* libTLIndexPathTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5A17C41F99009BD250 /* libTLIndexPathTools.a */; };
-		B1E86A5D17C41F99009BD250 /* libVCollectionViewGridLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5B17C41F99009BD250 /* libVCollectionViewGridLayout.a */; };
+		DE4D99C0E2C84B3DB84A4043 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0D67E5991F540C68F90E7E1 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,8 +48,8 @@
 		86BBB259177153FA00CFA35C /* SortNFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortNFilterViewController.m; sourceTree = "<group>"; };
 		86BBB25A177153FA00CFA35C /* SortNFilterCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortNFilterCollectionViewController.m; sourceTree = "<group>"; };
 		86BBB25B177153FA00CFA35C /* SortNFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortNFilterViewController.h; sourceTree = "<group>"; };
-		B1E86A5A17C41F99009BD250 /* libTLIndexPathTools.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libTLIndexPathTools.a; path = "../../TLIndexPathTools/build/Release-iphoneos/libTLIndexPathTools.a"; sourceTree = "<group>"; };
-		B1E86A5B17C41F99009BD250 /* libVCollectionViewGridLayout.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libVCollectionViewGridLayout.a; path = "../../build/Release-iphoneos/libVCollectionViewGridLayout.a"; sourceTree = "<group>"; };
+		C0D67E5991F540C68F90E7E1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA194896BFFE4C83BBC42C08 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +57,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E86A5C17C41F99009BD250 /* libTLIndexPathTools.a in Frameworks */,
-				B1E86A5D17C41F99009BD250 /* libVCollectionViewGridLayout.a in Frameworks */,
 				86BBB1F51771530700CFA35C /* QuartzCore.framework in Frameworks */,
 				86BBB1F3177152FE00CFA35C /* CoreData.framework in Frameworks */,
 				86BBB1D0177152BA00CFA35C /* UIKit.framework in Frameworks */,
 				86BBB1D2177152BA00CFA35C /* Foundation.framework in Frameworks */,
 				86BBB1D4177152BA00CFA35C /* CoreGraphics.framework in Frameworks */,
+				DE4D99C0E2C84B3DB84A4043 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +75,7 @@
 				86BBB1D5177152BA00CFA35C /* Sort & Filter */,
 				86BBB1CE177152BA00CFA35C /* Frameworks */,
 				86BBB1CD177152BA00CFA35C /* Products */,
+				DA194896BFFE4C83BBC42C08 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,13 +90,12 @@
 		86BBB1CE177152BA00CFA35C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1E86A5A17C41F99009BD250 /* libTLIndexPathTools.a */,
-				B1E86A5B17C41F99009BD250 /* libVCollectionViewGridLayout.a */,
 				86BBB1F41771530700CFA35C /* QuartzCore.framework */,
 				86BBB1F2177152FE00CFA35C /* CoreData.framework */,
 				86BBB1CF177152BA00CFA35C /* UIKit.framework */,
 				86BBB1D1177152BA00CFA35C /* Foundation.framework */,
 				86BBB1D3177152BA00CFA35C /* CoreGraphics.framework */,
+				C0D67E5991F540C68F90E7E1 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -140,9 +138,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86BBB1EF177152BA00CFA35C /* Build configuration list for PBXNativeTarget "Sort & Filter" */;
 			buildPhases = (
+				D984A4C6087A4BA8984B17AC /* Check Pods Manifest.lock */,
 				86BBB1C8177152BA00CFA35C /* Sources */,
 				86BBB1C9177152BA00CFA35C /* Frameworks */,
 				86BBB1CA177152BA00CFA35C /* Resources */,
+				608A4E3AFE514B2B9FCCB700 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +193,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		608A4E3AFE514B2B9FCCB700 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D984A4C6087A4BA8984B17AC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		86BBB1C8177152BA00CFA35C /* Sources */ = {
@@ -287,6 +320,7 @@
 		};
 		86BBB1F0177152BA00CFA35C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA194896BFFE4C83BBC42C08 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sort & Filter/Sort & Filter-Prefix.pch";
@@ -298,6 +332,7 @@
 		};
 		86BBB1F1177152BA00CFA35C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA194896BFFE4C83BBC42C08 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sort & Filter/Sort & Filter-Prefix.pch";

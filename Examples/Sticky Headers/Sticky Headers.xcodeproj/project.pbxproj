@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0DCD3C20696A4E0FB4CC05BB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A88484D4BD5C43C4B5D569BF /* libPods.a */; };
 		86512013178E56D4004829B6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86512012178E56D4004829B6 /* UIKit.framework */; };
 		86512015178E56D4004829B6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86512014178E56D4004829B6 /* Foundation.framework */; };
 		86512017178E56D4004829B6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86512016178E56D4004829B6 /* CoreGraphics.framework */; };
@@ -21,11 +22,10 @@
 		8651208C178E5771004829B6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8651208B178E5771004829B6 /* QuartzCore.framework */; };
 		8651208F178E57A6004829B6 /* StickyHeadersCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8651208E178E57A6004829B6 /* StickyHeadersCollectionViewController.m */; };
 		86512092178E5E8E004829B6 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 86512091178E5E8E004829B6 /* HeaderView.m */; };
-		B1E86A5317C41E40009BD250 /* libTLIndexPathTools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */; };
-		B1E86A5517C41E43009BD250 /* libVCollectionViewGridLayout.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B75B46F4AED488799827A6D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		8651200F178E56D4004829B6 /* Sticky Headers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sticky Headers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86512012178E56D4004829B6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86512014178E56D4004829B6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,8 +46,7 @@
 		8651208E178E57A6004829B6 /* StickyHeadersCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeadersCollectionViewController.m; sourceTree = "<group>"; };
 		86512090178E5E8E004829B6 /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
 		86512091178E5E8E004829B6 /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
-		B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libTLIndexPathTools.a; path = "../../TLIndexPathTools/build/Release-iphoneos/libTLIndexPathTools.a"; sourceTree = "<group>"; };
-		B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libVCollectionViewGridLayout.a; path = "../../build/Release-iphoneos/libVCollectionViewGridLayout.a"; sourceTree = "<group>"; };
+		A88484D4BD5C43C4B5D569BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +54,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1E86A5517C41E43009BD250 /* libVCollectionViewGridLayout.a in Frameworks */,
-				B1E86A5317C41E40009BD250 /* libTLIndexPathTools.a in Frameworks */,
 				8651208C178E5771004829B6 /* QuartzCore.framework in Frameworks */,
 				8651208A178E5769004829B6 /* CoreData.framework in Frameworks */,
 				86512013178E56D4004829B6 /* UIKit.framework in Frameworks */,
 				86512015178E56D4004829B6 /* Foundation.framework in Frameworks */,
 				86512017178E56D4004829B6 /* CoreGraphics.framework in Frameworks */,
+				0DCD3C20696A4E0FB4CC05BB /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +72,7 @@
 				86512018178E56D4004829B6 /* Sticky Headers */,
 				86512011178E56D4004829B6 /* Frameworks */,
 				86512010178E56D4004829B6 /* Products */,
+				4B75B46F4AED488799827A6D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,13 +87,12 @@
 		86512011178E56D4004829B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B1E86A5417C41E43009BD250 /* libVCollectionViewGridLayout.a */,
-				B1E86A5217C41E40009BD250 /* libTLIndexPathTools.a */,
 				8651208B178E5771004829B6 /* QuartzCore.framework */,
 				86512089178E5769004829B6 /* CoreData.framework */,
 				86512012178E56D4004829B6 /* UIKit.framework */,
 				86512014178E56D4004829B6 /* Foundation.framework */,
 				86512016178E56D4004829B6 /* CoreGraphics.framework */,
+				A88484D4BD5C43C4B5D569BF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,9 +133,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 86512032178E56D4004829B6 /* Build configuration list for PBXNativeTarget "Sticky Headers" */;
 			buildPhases = (
+				0E9641DA86A44644ADABBED3 /* Check Pods Manifest.lock */,
 				8651200B178E56D3004829B6 /* Sources */,
 				8651200C178E56D3004829B6 /* Frameworks */,
 				8651200D178E56D3004829B6 /* Resources */,
+				651312F69E7F4A5CA64289AA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -188,6 +188,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E9641DA86A44644ADABBED3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		651312F69E7F4A5CA64289AA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8651200B178E56D3004829B6 /* Sources */ = {
@@ -281,6 +314,7 @@
 		};
 		86512033178E56D4004829B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B75B46F4AED488799827A6D /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sticky Headers/Sticky Headers-Prefix.pch";
@@ -292,6 +326,7 @@
 		};
 		86512034178E56D4004829B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B75B46F4AED488799827A6D /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sticky Headers/Sticky Headers-Prefix.pch";
