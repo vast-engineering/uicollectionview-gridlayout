@@ -157,7 +157,13 @@ typedef enum {
         _dataModel = [[VCollectionViewDataModel alloc] initWithSectionInfos:sectionInfos identifierKeyPath:nil];
         _dataModel.contentSize = rectangularHull.size;
         _dataModel.headerPoses = headerPoses;
-        CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;// TODO This should take into account content offset
+        CGRect predictedBounds = self.oldDataModel ? self.oldDataModel.bounds : self.collectionView.bounds;
+        //Correct for predicted change in the bounds origin due to the current origin
+        //being invalid after a batch update (which we don't know yet).
+        CGFloat maxBoundsY = _dataModel.contentSize.height - self.collectionView.bounds.size.height;
+        if (predictedBounds.origin.y > maxBoundsY) {
+            predictedBounds.origin.y = maxBoundsY;
+        }
         _dataModel.bounds = predictedBounds;
         [self updateDataModelForStickyHeader];
     }
@@ -485,7 +491,6 @@ typedef enum {
     self.stickyPose.frame = self.originalStickyPoseFrame;
 
     UICollectionViewLayoutAttributes *topMostHeaderPose = dataModel.headerPoses[topMostSection];
-//    NSLog(@"indexPath=%@, frame=%@", topMostHeaderPose.indexPath, NSStringFromCGRect(topMostHeaderPose.frame));
     UICollectionViewLayoutAttributes *nextSectionPose = dataModel.headerPoses.count > topMostSection + 1 ? dataModel.headerPoses[topMostSection + 1] : nil;
     if (topMostHeaderPose) {
         if (topMostHeaderPose != self.stickyPose) {

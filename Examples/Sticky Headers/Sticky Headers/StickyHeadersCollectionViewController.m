@@ -78,6 +78,19 @@
     return nil;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    [collectionView performBatchUpdates:^{
+        id<NSFetchedResultsSectionInfo> section = [self.indexPathController.dataModel sectionInfoForSection:indexPath.section];
+        NSMutableArray *filtered = [section.objects mutableCopy];
+        [filtered removeObjectAtIndex:indexPath.row];
+        section = [[TLIndexPathSectionInfo alloc] initWithItems:filtered name:section.name];
+        
+        NSMutableArray *sectionInfos = [self.indexPathController.dataModel.sections mutableCopy];
+        sectionInfos[indexPath.section] = section;
+        self.indexPathController.dataModel = [[TLIndexPathDataModel alloc] initWithSectionInfos:sectionInfos identifierKeyPath:nil];
+//    } completion:nil];
+}
+
 #pragma mark - VCollectionViewGridLayout
 
 - (id)collectionView:(UICollectionView *)collectionView layout:(VCollectionViewGridLayout*)layout identifierForItemAtIndexPath:(NSIndexPath *)indexPath

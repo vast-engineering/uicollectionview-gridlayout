@@ -21,3 +21,5 @@ xcuserdata
 #AppCode excludes
 .idea
 
+
+/VCollectionViewGridLayout.xcworkspace/xcshareddata/
