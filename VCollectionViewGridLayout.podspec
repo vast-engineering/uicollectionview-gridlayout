@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/vast-engineering/uicollectionview-gridlayout"
   s.license      = { :type => "Apache 2.0" }
   s.author       = { "wtmoose" => "tmoose@vast.com" }
-  s.source       = { :git => "https://github.com/vast-eng/uicollectionview-gridlayout.git" }
+  s.source       = { :git => "https://github.com/vast-eng/uicollectionview-gridlayout.git", :tag => '0.0.2' }
   s.platform     = :ios, '6.0'
   s.ios.deployment_target = '6.0'
   s.source_files = 'VCollectionViewGridLayout/**/*.{h,m}'
