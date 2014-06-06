@@ -223,8 +223,13 @@ typedef enum {
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForSupplementaryViewOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes *pose = [self.dataModel.headerPoses objectAtIndex:indexPath.section];
-    return pose;
+    if ([self.dataModel.headerPoses count] > indexPath.section) {
+        UICollectionViewLayoutAttributes *pose = [self.dataModel.headerPoses objectAtIndex:indexPath.section];
+        NSLog(@"DEBUG2.1 returning header pose=%@", pose);
+        return pose;
+    }
+    NSLog(@"DEBUG2.1 returning header pose=nil");
+    return nil;
 }
 
 //layoutAttributesForDecorationViewOfKind:atIndexPath: (if your layout supports decoration views)
@@ -243,11 +248,19 @@ typedef enum {
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingSupplementaryElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)elementIndexPath
 {
-    UICollectionViewLayoutAttributes *newPose = [self.dataModel.headerPoses objectAtIndex:elementIndexPath.section];
-    NSString *sectionName = [self.dataModel sectionNameForSection:elementIndexPath.section];
-    NSInteger oldSection = [self.oldDataModel sectionForSectionName:sectionName];
-    UICollectionViewLayoutAttributes *oldPose = oldSection == NSNotFound ? nil : [self.oldDataModel.headerPoses objectAtIndex:oldSection];
-    return [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+    if ([self.dataModel.headerPoses count] > elementIndexPath.section) {
+        UICollectionViewLayoutAttributes *newPose = [self.dataModel.headerPoses objectAtIndex:elementIndexPath.section];
+        NSString *sectionName = [self.dataModel sectionNameForSection:elementIndexPath.section];
+        NSInteger oldSection = [self.oldDataModel sectionForSectionName:sectionName];
+        if (oldSection != NSNotFound && [self.oldDataModel.headerPoses count] > oldSection) {
+            UICollectionViewLayoutAttributes *oldPose = oldSection == NSNotFound ? nil : [self.oldDataModel.headerPoses objectAtIndex:oldSection];
+            UICollectionViewLayoutAttributes *pose = [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+            NSLog(@"DEBUG2.1 returning initial header pose=%@", pose);
+            return [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+        }
+    }
+    NSLog(@"DEBUG2.1 returning final header pose=nil");
+    return nil;
 }
 
 - (UICollectionViewLayoutAttributes *)initialLayoutAttributesForOldPose:(UICollectionViewLayoutAttributes *)oldPose andNewPose:(UICollectionViewLayoutAttributes *)newPose
@@ -289,11 +302,19 @@ typedef enum {
 
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingSupplementaryElementOfKind:(NSString *)elementKind atIndexPath:(NSIndexPath *)elementIndexPath
 {
-    UICollectionViewLayoutAttributes *oldPose = [self.oldDataModel.headerPoses objectAtIndex:elementIndexPath.section];
-    NSString *sectionName = [self.oldDataModel sectionNameForSection:elementIndexPath.section];
-    NSInteger newSection = [self.dataModel sectionForSectionName:sectionName];
-    UICollectionViewLayoutAttributes *newPose = newSection == NSNotFound ? nil : [self.dataModel.headerPoses objectAtIndex:newSection];
-    return [self finalLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+    if ([self.oldDataModel.headerPoses count] > elementIndexPath.section) {
+        UICollectionViewLayoutAttributes *oldPose = [self.oldDataModel.headerPoses objectAtIndex:elementIndexPath.section];
+        NSString *sectionName = [self.oldDataModel sectionNameForSection:elementIndexPath.section];
+        NSInteger newSection = [self.dataModel sectionForSectionName:sectionName];
+        if (newSection != NSNotFound && [self.dataModel.headerPoses count] > newSection) {
+            UICollectionViewLayoutAttributes *newPose = newSection == NSNotFound ? nil : [self.dataModel.headerPoses objectAtIndex:newSection];
+            UICollectionViewLayoutAttributes *pose = [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+            NSLog(@"DEBUG2.1 returning final header pose=%@", pose);
+            return [self finalLayoutAttributesForOldPose:oldPose andNewPose:newPose];
+        }
+    }
+    NSLog(@"DEBUG2.1 returning final header pose=nil");
+    return nil;
 }
 
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForOldPose:(UICollectionViewLayoutAttributes *)oldPose andNewPose:(UICollectionViewLayoutAttributes *)newPose
@@ -446,8 +467,9 @@ typedef enum {
 
     // Determine the top most visible section
 
+    CGFloat contentInsetTop = self.collectionView.contentInset.top;
     CGRect stickyBounds = dataModel.bounds;
-    stickyBounds.origin.y += self.stickyHeaderInsetTop;
+    stickyBounds.origin.y += self.stickyHeaderInsetTop + contentInsetTop;
     stickyBounds.size.height -= self.stickyHeaderInsetTop;
 
     UICollectionViewLayoutAttributes *topMostPose;
@@ -498,7 +520,7 @@ typedef enum {
             self.originalStickyPoseFrame = topMostHeaderPose.frame;
         }
         CGFloat pos = [self relativeScrollPositionForAttributes:topMostHeaderPose];
-        if (pos < self.stickyHeaderInsetTop) {
+        if (pos < self.stickyHeaderInsetTop + contentInsetTop) {
             CGRect frame = topMostHeaderPose.frame;
             frame.origin.y = stickyBounds.origin.y;
             if (nextSectionPose) {
