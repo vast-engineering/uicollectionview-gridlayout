@@ -225,10 +225,8 @@ typedef enum {
 {
     if ([self.dataModel.headerPoses count] > indexPath.section) {
         UICollectionViewLayoutAttributes *pose = [self.dataModel.headerPoses objectAtIndex:indexPath.section];
-        NSLog(@"DEBUG2.1 returning header pose=%@", pose);
         return pose;
     }
-    NSLog(@"DEBUG2.1 returning header pose=nil");
     return nil;
 }
 
@@ -254,12 +252,9 @@ typedef enum {
         NSInteger oldSection = [self.oldDataModel sectionForSectionName:sectionName];
         if (oldSection != NSNotFound && [self.oldDataModel.headerPoses count] > oldSection) {
             UICollectionViewLayoutAttributes *oldPose = oldSection == NSNotFound ? nil : [self.oldDataModel.headerPoses objectAtIndex:oldSection];
-            UICollectionViewLayoutAttributes *pose = [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
-            NSLog(@"DEBUG2.1 returning initial header pose=%@", pose);
             return [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
         }
     }
-    NSLog(@"DEBUG2.1 returning final header pose=nil");
     return nil;
 }
 
@@ -308,12 +303,9 @@ typedef enum {
         NSInteger newSection = [self.dataModel sectionForSectionName:sectionName];
         if (newSection != NSNotFound && [self.dataModel.headerPoses count] > newSection) {
             UICollectionViewLayoutAttributes *newPose = newSection == NSNotFound ? nil : [self.dataModel.headerPoses objectAtIndex:newSection];
-            UICollectionViewLayoutAttributes *pose = [self initialLayoutAttributesForOldPose:oldPose andNewPose:newPose];
-            NSLog(@"DEBUG2.1 returning final header pose=%@", pose);
             return [self finalLayoutAttributesForOldPose:oldPose andNewPose:newPose];
         }
     }
-    NSLog(@"DEBUG2.1 returning final header pose=nil");
     return nil;
 }
 
